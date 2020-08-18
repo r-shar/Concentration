@@ -30,10 +30,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    var emojiGame: EmojiConcentrationGame  //emojiGame is the viewModel
+    
     var body: some View {
         return HStack {
-            ForEach(0..<4)  { index in
-                CardView(isFaceUp: false)
+            ForEach(emojiGame.cards)  { card in
+                CardView(card: card).onTapGesture {
+                    self.emojiGame.chooseCard(card: card)
+                }
             }
         }
             .padding()
@@ -43,23 +47,23 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    var isFaceUp: Bool
+    var card: ConcentrationGame<String>.Card
     
     var body: some View {
         ZStack {
-            if isFaceUp  {
+            if card.isFaceUp  {
                 RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
                 RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-                Text("🙈")
+                Text(card.content)
             } else{
                 RoundedRectangle(cornerRadius: 10.0).fill() // back of card
             }
-        }
+        }.aspectRatio(2/3, contentMode: .fit)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(emojiGame: EmojiConcentrationGame())
     }
 }
