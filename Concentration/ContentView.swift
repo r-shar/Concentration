@@ -31,7 +31,6 @@ import SwiftUI
 
 struct ContentView: View {
     var emojiGame: EmojiConcentrationGame  //emojiGame is the viewModel
-    
     var body: some View {
         return HStack {
             ForEach(emojiGame.cards)  { card in
@@ -54,7 +53,7 @@ struct CardView: View {
             if card.isFaceUp  {
                 RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
                 RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-                Text(card.content)
+                Text(card.content).font(.body)
             } else{
                 RoundedRectangle(cornerRadius: 10.0).fill() // back of card
             }

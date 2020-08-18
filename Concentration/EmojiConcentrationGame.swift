@@ -31,8 +31,10 @@ class EmojiConcentrationGame {
     private var game: ConcentrationGame<String> = EmojiConcentrationGame.createConcentrationGame()
     
     static func createConcentrationGame() -> ConcentrationGame<String> {
-        let emojis: Array<String> = ["🙈","🐮"]
-        return ConcentrationGame<String>(numPairs: emojis.count) { pairIndex in
+        let emojis: Array<String> = ["🙈","🐮", "🐶", "🐷", "🐙"]
+        let numPairs = Int.random(in:2...5)
+        
+        return ConcentrationGame<String>(numPairs: numPairs) { pairIndex in
             return emojis[pairIndex]
         }
     }
