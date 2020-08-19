@@ -15,6 +15,10 @@
  
  
  static functions are applied to a CLASS, not a specific instance of an object
+ 
+ @Published is a property wrapper:
+    add functionality to property
+    in our case, any time our model is changed, it calls objectWillChange.send()
  */
 
 // ViewModel 
@@ -26,9 +30,10 @@ import SwiftUI
 //    return "🙈"
 //}
 
-class EmojiConcentrationGame {
+class EmojiConcentrationGame: ObservableObject {
     
-    private var game: ConcentrationGame<String> = EmojiConcentrationGame.createConcentrationGame()
+    // portal to the model
+    @Published private var game: ConcentrationGame<String> = EmojiConcentrationGame.createConcentrationGame()
     
     static func createConcentrationGame() -> ConcentrationGame<String> {
         let emojis: Array<String> = ["🙈","🐮", "🐶", "🐷", "🐙"]
@@ -38,6 +43,8 @@ class EmojiConcentrationGame {
             return emojis[pairIndex]
         }
     }
+    
+    
         
     
     // MARK - Access to the model

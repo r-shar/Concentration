@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EmojiConcentrationGameView.swift
 //  Concentration
 //
 //  Created by Rashmi Sharma on 8/15/20.
@@ -25,12 +25,15 @@
     can set the spacing --> HStack(spacing: __, content:)
  
  can remove explicit reference to "content" argument to clean up code
+ 
+ 
+ @ObservedObject : every time viewModel publishes, we want view to redraw
  */
 
 import SwiftUI
 
-struct ContentView: View {
-    var emojiGame: EmojiConcentrationGame  //emojiGame is the viewModel
+struct EmojiConcentrationGameView: View {
+    @ObservedObject var emojiGame: EmojiConcentrationGame  //emojiGame is the viewModel
     var body: some View {
         return HStack {
             ForEach(emojiGame.cards)  { card in
@@ -63,6 +66,6 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(emojiGame: EmojiConcentrationGame())
+        EmojiConcentrationGameView(emojiGame: EmojiConcentrationGame())
     }
 }
