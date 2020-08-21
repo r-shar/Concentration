@@ -44,7 +44,7 @@ struct EmojiConcentrationGameView: View {
         }
             .padding()
             .foregroundColor(Color.orange)
-            .font(Font.largeTitle)
+            
     }
 }
 
@@ -52,15 +52,21 @@ struct CardView: View {
     var card: ConcentrationGame<String>.Card
     
     var body: some View {
-        ZStack {
-            if card.isFaceUp  {
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-                Text(card.content).font(.body)
-            } else{
-                RoundedRectangle(cornerRadius: 10.0).fill() // back of card
+        GeometryReader { geometry in
+            ZStack {
+                if self.card.isFaceUp  {
+                    RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
+                    RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
+                    Text(self.card.content)
+                } else{
+                    RoundedRectangle(cornerRadius: 10.0).fill() // back of card
+                }
             }
-        }.aspectRatio(2/3, contentMode: .fit)
+            .aspectRatio(2/3, contentMode: .fit)
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.75))
+            // ^create a custom font that has size of minimum of container's width and height
+        }
+        
     }
 }
 
