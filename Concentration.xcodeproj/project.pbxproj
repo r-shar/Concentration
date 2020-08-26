@@ -15,6 +15,8 @@
 		A403E40324E85900003B8A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A403E40124E85900003B8A36 /* LaunchScreen.storyboard */; };
 		A448859F24EB386200801BD6 /* ConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448859E24EB386200801BD6 /* ConcentrationGame.swift */; };
 		A44885A124EB39CC00801BD6 /* EmojiConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44885A024EB39CC00801BD6 /* EmojiConcentrationGame.swift */; };
+		A4C4F45824F6E2A7005F99BD /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4F45724F6E2A7005F99BD /* Grid.swift */; };
+		A4C4F45A24F6E7F4005F99BD /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4F45924F6E7F4005F99BD /* GridLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A403E40424E85900003B8A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A448859E24EB386200801BD6 /* ConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGame.swift; sourceTree = SOURCE_ROOT; };
 		A44885A024EB39CC00801BD6 /* EmojiConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiConcentrationGame.swift; sourceTree = "<group>"; };
+		A4C4F45724F6E2A7005F99BD /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		A4C4F45924F6E7F4005F99BD /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +64,12 @@
 		A403E3F524E858F8003B8A36 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				A4C4F45924F6E7F4005F99BD /* GridLayout.swift */,
 				A448859E24EB386200801BD6 /* ConcentrationGame.swift */,
 				A403E3F624E858F8003B8A36 /* AppDelegate.swift */,
 				A403E3F824E858F8003B8A36 /* SceneDelegate.swift */,
 				A403E3FA24E858F8003B8A36 /* EmojiConcentrationGameView.swift */,
+				A4C4F45724F6E2A7005F99BD /* Grid.swift */,
 				A44885A024EB39CC00801BD6 /* EmojiConcentrationGame.swift */,
 				A403E3FC24E85900003B8A36 /* Assets.xcassets */,
 				A403E40124E85900003B8A36 /* LaunchScreen.storyboard */,
@@ -157,6 +163,8 @@
 				A403E3FB24E858F8003B8A36 /* EmojiConcentrationGameView.swift in Sources */,
 				A448859F24EB386200801BD6 /* ConcentrationGame.swift in Sources */,
 				A44885A124EB39CC00801BD6 /* EmojiConcentrationGame.swift in Sources */,
+				A4C4F45A24F6E7F4005F99BD /* GridLayout.swift in Sources */,
+				A4C4F45824F6E2A7005F99BD /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

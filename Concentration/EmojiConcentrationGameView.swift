@@ -36,10 +36,11 @@ struct EmojiConcentrationGameView: View {
     @ObservedObject var emojiGame: EmojiConcentrationGame  //emojiGame is the viewModel
     var body: some View {
         return HStack {
-            ForEach(emojiGame.cards)  { card in
+            Grid(emojiGame.cards)  { card in
                 CardView(card: card).onTapGesture {
                     self.emojiGame.chooseCard(card: card)
                 }
+                .padding()
             }
         }
             .padding()
