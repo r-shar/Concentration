@@ -60,10 +60,13 @@ struct CardView: View {
                     RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
                     Text(self.card.content)
                 } else{
-                    RoundedRectangle(cornerRadius: 10.0).fill() // back of card
+                    if !self.card.isMatched{
+                        RoundedRectangle(cornerRadius: 10.0).fill() // back of card
+                    }
+                    
                 }
             }
-            .aspectRatio(2/3, contentMode: .fit)
+//            .aspectRatio(2/3, contentMode: .fit)
             .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.75))
             // ^create a custom font that has size of minimum of container's width and height
         }

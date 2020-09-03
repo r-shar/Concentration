@@ -12,28 +12,52 @@
 
 import Foundation
 
-struct ConcentrationGame<CardContent> {
+struct ConcentrationGame<CardContent> where CardContent: Equatable {
     var cards: Array<Card>
+    
+    var indexOfOneFaceUp: Int? {
+        get {
+            var faceUpCardIndices = [Int]()
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    faceUpCardIndices.append(index)
+                }
+            }
+            if faceUpCardIndices.count == 1 {
+                return faceUpCardIndices.first
+            } else{
+                return nil
+            }
+        }
+        set {
+            for index in cards.indices {
+                
+                cards[index].isFaceUp = index == newValue
+                
+            }
+        }
+    }
     
     // mark functions in a STRUCT with "mutating" to let system know that you are making changes to self
     mutating func chooseCard(card: Card) {
-        print("card chosen: \(card)")
+//        print("card chosen: \(card)")
         // passed in argument card is a value type, it is a COPY
         
         // find the card's index
-        let chosenIndex: Int = self.index(of: card)
-        self.cards[chosenIndex].isFaceUp = !self.cards[chosenIndex].isFaceUp
-        
-        
-        
-    }
-    func index(of card: Card) -> Int {
-        for index in 0..<self.cards.count {
-            if self.cards[index].id == card.id {
-                return index
+        if let chosenIndex: Int = cards.firstIndex(matching: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
+            
+            if let potentialMatchIndex = indexOfOneFaceUp {
+                if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                    cards[chosenIndex].isMatched = true
+                    cards[potentialMatchIndex].isMatched = true
+                }
+                self.cards[chosenIndex].isFaceUp = true
+            } else{
+               
+                indexOfOneFaceUp = chosenIndex
             }
         }
-        return 0 // WHAT TO PUT HERE IF CARD NOT FOUND
+        
     }
     
     // tells us how to create a memory game
